@@ -1,0 +1,51 @@
+{
+    "name": "mpMath",
+    "version": "0.1.5",
+    "description": "微信公众号公式插件.",
+    "permissions": ["storage", "declarativeContent", "activeTab"],
+    "background": {
+        "scripts": ["assets/js/background.js"],
+        "persistent": false
+    },
+    "page_action": {
+        "default_icon": {
+            "16": "assets/images/mpMath_logo16.png",
+            "32": "assets/images/mpMath_logo32.png",
+            "48": "assets/images/mpMath_logo48.png",
+            "128": "assets/images/mpMath_logo128.png"
+        }
+    },
+    "icons": {
+        "16": "assets/images/mpMath_logo16.png",
+        "32": "assets/images/mpMath_logo32.png",
+        "48": "assets/images/mpMath_logo48.png",
+        "128": "assets/images/mpMath_logo128.png"
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "*://mp.weixin.qq.com/*"
+            ],
+            "js": [
+                "assets/js/jquery-3.4.1.min.js",
+                "assets/js/content-script.js"
+            ],
+            "css": [
+                "assets/css/mpMath.css"
+            ],
+            "run_at": "document_end"
+        }
+    ],
+    "web_accessible_resources": [
+        "assets/images/formula.png",
+        "assets/css/bootstrap.min.css",
+        "assets/js/jquery-3.4.1.min.js",
+        "assets/js/bootstrap.min.js",
+        "assets/js/mpm-inject.js",
+        "assets/js/polyfill.min.js",
+        "assets/js/tex-svg.js",
+        "assets/js/popup.js",
+        "pages/popup.html"
+    ],
+    "manifest_version": 2
+}
