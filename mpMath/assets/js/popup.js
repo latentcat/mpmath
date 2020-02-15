@@ -81,8 +81,11 @@ $(function() {
         if (event.keyCode == 13 && event.shiftKey) {
             insertFormula();
         }
+    });
+
+    $(document).keydown(function(event) {
         // 处理esc
-        else if (event.keyCode == 27) {
+        if (event.keyCode == 27) {
             closeFrame();
         }
     });
