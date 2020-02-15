@@ -24,6 +24,10 @@ body {
     box-sizing: border-box;
 }
 
+.weui-desktop-btn {
+    outline: none;
+}
+
 .weui-desktop-dialog__bd {
     padding: 32px;
 }

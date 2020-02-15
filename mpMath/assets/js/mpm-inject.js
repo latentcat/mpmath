@@ -2,12 +2,12 @@
 let editing, editingMode;
 
 // 等待文档加载完毕
-var readyStateCheckInterval = setInterval(function () {
+var readyStateCheckInterval = setInterval(function() {
     if (document.readyState === 'complete') {
         clearInterval(readyStateCheckInterval);
 
         // 处理来自iframe的消息
-        window.addEventListener("message", function (event) {
+        window.addEventListener("message", function(event) {
             if (event.data.type) {
                 // 处理关闭公式编辑框的消息
                 if (event.data.type == 'CLOSE_FORMULA') {
@@ -21,8 +21,7 @@ var readyStateCheckInterval = setInterval(function () {
                     if (editingMode == true) {
                         editing.outerHTML = event.data.text;
                         editingMode = false; // 还原为非编辑模式
-                    }
-                    else {
+                    } else {
                         window.UE.getEditor('js_editor').execCommand('insertHTML', '\xA0' + event.data.text + '\xA0');
                     }
                 }
@@ -30,10 +29,11 @@ var readyStateCheckInterval = setInterval(function () {
         });
 
         // 编辑事件监听
-        $('#ueditor_0').contents().find('.view').on('click', '[data-formula]', function (event) {
+        $('#ueditor_0').contents().find('.view').on('click', '[data-formula]', function(event) {
+
             $('#popup')[0].style.display = 'block';
             $('#popup')[0].focus();
-            $('#popup')[0].contentWindow.postMessage({ type: 'CHANGE_INPUT', text: $(this).attr('data-formula') }, '*');
+            $('#popup')[0].contentWindow.postMessage({ type: 'CHANGE_INPUT', text: $(this).attr('data-formula'), isBlock: $(this).children('mjx-container').attr('display') }, '*');
             editing = this;
             editingMode = true;
         });

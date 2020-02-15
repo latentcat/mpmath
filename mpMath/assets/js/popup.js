@@ -5,6 +5,7 @@ MathJax = {
 };
 
 let input = document.getElementById('input');
+let block = document.getElementById('block');
 let insert = document.getElementById('insert');
 
 // Tex代码转SVG图像
@@ -16,7 +17,7 @@ function convert() {
 
     MathJax.texReset();
     let options = MathJax.getMetricsFor(output);
-    options.display = true;
+    options.display = block.checked;
     MathJax.tex2svgPromise(input, options).then(function(node) {
         output.appendChild(node);
         MathJax.startup.document.clear();
@@ -36,16 +37,17 @@ function closeFrame() {
 function insertFormula() {
     // 将生成的mjx-container套在span中
     let output = document.getElementById('output');
-    let block = document.getElementById('block');
     let sp = document.createElement('span');
-    if (block.checked) {
+    if ($(block).prop('checked')) {
         output.childNodes[0].style = 'overflow-x:auto; outline:0; display:block; text-align: center;'
+        output.childNodes[0].setAttribute('display', true);
         output.childNodes[0].childNodes[0].style = 'height:auto; max-width:300% !important;'
     }
 
     sp.setAttribute('style', 'cursor:pointer;');
     sp.setAttribute('data-formula', input.value.trim().replace(/\\/g, '\\\\'));
     sp.appendChild(output.childNodes[0]);
+    sp.innerHTML = sp.innerHTML.replace(/<mjx-assistive-mml.+?<\/mjx-assistive-mml>/g, "");
 
     parent.window.postMessage({ type: 'INSERT_FORMULA', text: sp.outerHTML }, '*');
     input.value = '';
@@ -64,6 +66,10 @@ $(function() {
             if (event.data.type == 'CHANGE_INPUT') {
                 input.value = event.data.text.replace(/\\\\/g, '\\');
                 input.focus();
+
+                // 行间公式自动勾选
+                if (event.data.isBlock == "true") $(block).prop('checked', true);
+                else $(block).prop('checked', false);
                 convert();
             }
         }
