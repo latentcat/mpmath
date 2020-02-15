@@ -19,7 +19,9 @@ var readyStateCheckInterval = setInterval(function() {
                 else if (event.data.type == 'INSERT_FORMULA') {
                     // 如果在编辑模式就替换当前编辑元素, 否则插入新元素
                     if (editingMode == true) {
-                        editing.outerHTML = event.data.text;
+                        let beg = event.data.text.indexOf('>') + 1;
+                        let end = event.data.text.lastIndex('<') - 1;
+                        editing.innerHTML = event.data.text.subString(beg, end);
                         editingMode = false; // 还原为非编辑模式
                     } else {
                         window.UE.getEditor('js_editor').execCommand('insertHTML', '\xA0' + event.data.text + '\xA0');
