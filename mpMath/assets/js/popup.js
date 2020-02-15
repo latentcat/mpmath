@@ -44,7 +44,8 @@ function insertFormula() {
         output.childNodes[0].childNodes[0].style = 'height:auto; max-width:300% !important;'
     }
 
-    output.childNodes[0].setAttribute('data-formula', input.value.trim().replace(/\\/g, '\\\\'));
+    //output.childNodes[0].setAttribute('data-formula', input.value.trim().replace(/\\/g, '\\\\'));
+    output.childNodes[0].setAttribute('data-formula', input.value.trim());
     sp.setAttribute('style', 'cursor:pointer;');
     sp.appendChild(output.childNodes[0]);
     sp.innerHTML = sp.innerHTML.replace(/<mjx-assistive-mml.+?<\/mjx-assistive-mml>/g, "");
@@ -65,7 +66,8 @@ $(function() {
         // 接收来自主页面的消息，改变输入框内容
         if (event.data.type) {
             if (event.data.type == 'CHANGE_INPUT') {
-                input.value = event.data.text.replace(/\\\\/g, '\\');
+                //input.value = event.data.text.replace(/\\\\/g, '\\');
+                input.value = event.data.text;
                 input.focus();
 
                 // 行间公式自动勾选
