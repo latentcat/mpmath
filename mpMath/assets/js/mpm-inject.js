@@ -33,7 +33,7 @@ var readyStateCheckInterval = setInterval(function() {
             $('#popup')[0].style.display = 'block';
             $('#popup')[0].focus();
             $('#popup')[0].contentWindow.postMessage({ type: 'CHANGE_INPUT', text: $(this).attr('data-formula'), isBlock: $(this).attr('display') }, '*');
-            editing = this;
+            editing = this.parentElement;
             editingMode = true;
         });
     }
