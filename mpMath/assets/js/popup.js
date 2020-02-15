@@ -39,7 +39,7 @@ function insertFormula() {
     let output = document.getElementById('output');
     let sp = document.createElement('span');
     if ($(block).prop('checked')) {
-        output.childNodes[0].style = 'overflow-x:auto; outline:0; display:block; text-align: center;'
+        output.childNodes[0].style = 'overflow-x:auto; outline:0; display:block; text-align: center; margin: 15px 0px;'
         output.childNodes[0].setAttribute('display', true);
         output.childNodes[0].childNodes[0].style = 'height:auto; max-width:300% !important;'
     }
@@ -76,6 +76,13 @@ $(function() {
                 convert();
             }
         }
+    });
+
+    // 防止窗口失去焦点
+    $(window).focusout(function() {
+        setTimeout(function() {
+            $('#input').focus();
+        }, 10);
     });
 
     $('#input').keydown(function(event) {

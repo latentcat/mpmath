@@ -20,8 +20,8 @@ var readyStateCheckInterval = setInterval(function() {
                     // 如果在编辑模式就替换当前编辑元素, 否则插入新元素
                     if (editingMode == true) {
                         let beg = event.data.text.indexOf('>') + 1;
-                        let end = event.data.text.lastIndex('<') - 1;
-                        editing.innerHTML = event.data.text.subString(beg, end);
+                        let end = event.data.text.lastIndexOf('<') - 1;
+                        editing.innerHTML = event.data.text.substring(beg, end);
                         editingMode = false; // 还原为非编辑模式
                     } else {
                         window.UE.getEditor('js_editor').execCommand('insertHTML', '\xA0' + event.data.text + '\xA0');
@@ -33,8 +33,8 @@ var readyStateCheckInterval = setInterval(function() {
         // 编辑事件监听
         $('#ueditor_0').contents().find('.view').on('click', '[data-formula]', function(event) {
             $('#popup')[0].style.display = 'block';
-            $('#popup')[0].focus();
             $('#popup')[0].contentWindow.postMessage({ type: 'CHANGE_INPUT', text: $(this).attr('data-formula'), isBlock: $(this).attr('display') }, '*');
+            $('#popup')[0].focus();
             editing = this.parentElement;
             editingMode = true;
         });
