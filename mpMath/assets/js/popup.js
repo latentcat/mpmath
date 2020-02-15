@@ -44,8 +44,8 @@ function insertFormula() {
         output.childNodes[0].childNodes[0].style = 'height:auto; max-width:300% !important;'
     }
 
+    output.childNodes[0].setAttribute('data-formula', input.value.trim().replace(/\\/g, '\\\\'));
     sp.setAttribute('style', 'cursor:pointer;');
-    sp.setAttribute('data-formula', input.value.trim().replace(/\\/g, '\\\\'));
     sp.appendChild(output.childNodes[0]);
     sp.innerHTML = sp.innerHTML.replace(/<mjx-assistive-mml.+?<\/mjx-assistive-mml>/g, "");
 

@@ -30,10 +30,9 @@ var readyStateCheckInterval = setInterval(function() {
 
         // 编辑事件监听
         $('#ueditor_0').contents().find('.view').on('click', '[data-formula]', function(event) {
-
             $('#popup')[0].style.display = 'block';
             $('#popup')[0].focus();
-            $('#popup')[0].contentWindow.postMessage({ type: 'CHANGE_INPUT', text: $(this).attr('data-formula'), isBlock: $(this).children('mjx-container').attr('display') }, '*');
+            $('#popup')[0].contentWindow.postMessage({ type: 'CHANGE_INPUT', text: $(this).attr('data-formula'), isBlock: $(this).attr('display') }, '*');
             editing = this;
             editingMode = true;
         });
