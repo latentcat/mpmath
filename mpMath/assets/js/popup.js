@@ -56,6 +56,7 @@ function insertFormula() {
 
 $(function() {
     input.oninput = convert;
+    block.onchange = convert;
     insert.onclick = insertFormula;
     document.getElementById('close').onclick = closeFrame;
     document.getElementById('cancel').onclick = closeFrame;
