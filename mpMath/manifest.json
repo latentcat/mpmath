@@ -1,6 +1,6 @@
 {
     "name": "mpMath",
-    "version": "0.1.5",
+    "version": "0.1.7",
     "description": "微信公众号公式插件.",
     "permissions": ["storage", "declarativeContent", "activeTab"],
     "background": {

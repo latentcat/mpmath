@@ -31,22 +31,6 @@ chrome.extension.sendMessage({}, function (response) {
                 iframe.style.display = 'none';
                 document.body.appendChild(iframe);
 
-                // 工具栏按钮
-                // let toolButton = document.createElement('div');
-                // toolButton.setAttribute('class', 'mpm-tool-formula mpm-tool-tip');
-                // toolButton.setAttribute('data-tooltip', '插入公式 Ctrl/⌘+/');
-
-                // let toolButtonInner = document.createElement('div');
-                // toolButtonInner.setAttribute('class', 'mpm-tool-button');
-                // toolButtonInner.onclick = formulaClick;
-
-                // let toolButtonIcon = document.createElement('div');
-                // toolButtonIcon.setAttribute('class', 'mpm-tool-button-icon');
-                // toolButtonIcon.style.backgroundImage = "url('chrome-extension://" + chrome.runtime.id + "/assets/images/formula.png')";
-                // toolButtonInner.appendChild(toolButtonIcon);
-                // toolButton.appendChild(toolButtonInner);
-                // $('#mpa-extra-tools-container')[0].appendChild(toolButton);
-
                 // 上方菜单栏公式按钮
                 let formulaItem = document.createElement('li');
                 formulaItem.setAttribute('class', 'tpl_item jsInsertIcon formula');

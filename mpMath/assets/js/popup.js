@@ -8,9 +8,21 @@ let input = document.getElementById('input');
 let block = document.getElementById('block');
 let insert = document.getElementById('insert');
 
+// 判断输入是否为空
+function checkNull(str) {
+    if (str.length == 0) {
+        insert.disabled = true;
+        $(insert).addClass('weui-desktop-btn_disabled');
+    } else {
+        insert.disabled = false;
+        $(insert).removeClass('weui-desktop-btn_disabled');
+    }
+}
+
 // Tex代码转SVG图像
 function convert() {
-    let input = document.getElementById("input").value.trim();
+    let inputTex = document.getElementById("input").value.trim();
+    checkNull(inputTex);
 
     output = document.getElementById('output');
     output.innerHTML = '';
@@ -18,14 +30,14 @@ function convert() {
     MathJax.texReset();
     let options = MathJax.getMetricsFor(output);
     options.display = block.checked;
-    MathJax.tex2svgPromise(input, options).then(function(node) {
+    MathJax.tex2svgPromise(inputTex, options).then(function(node) {
         output.appendChild(node);
         MathJax.startup.document.clear();
         MathJax.startup.document.updateDocument();
     }).catch(function(err) {
         output.appendChild(document.createElement('pre')).appendChild(document.createTextNode(err.message));
     }).then(function() {
-        input.disabled = false;
+        inputTex.disabled = false;
     });
 }
 
@@ -35,6 +47,8 @@ function closeFrame() {
 }
 
 function insertFormula() {
+    if (insert.disabled == true) return;
+
     // 将生成的mjx-container套在span中
     let output = document.getElementById('output');
     let sp = document.createElement('span');

@@ -12,7 +12,7 @@ var readyStateCheckInterval = setInterval(function() {
                 // 处理关闭公式编辑框的消息
                 if (event.data.type == 'CLOSE_FORMULA') {
                     document.getElementById('popup').style.display = 'none';
-                    $('#ueditor_0')[0].focus(); // 重置焦点
+                    setTimeout(function() { $('#ueditor_0')[0].focus(); }, 10); // 重置焦点
                     editingMode = false; // 取消编辑
                 }
                 // 处理插入公式的消息
@@ -34,7 +34,7 @@ var readyStateCheckInterval = setInterval(function() {
         $('#ueditor_0').contents().find('.view').on('click', '[data-formula]', function(event) {
             $('#popup')[0].style.display = 'block';
             $('#popup')[0].contentWindow.postMessage({ type: 'CHANGE_INPUT', text: $(this).attr('data-formula'), isBlock: $(this).attr('display') }, '*');
-            $('#popup')[0].focus();
+            setTimeout(function() { $('#popup')[0].focus(); }, 10);
             editing = this.parentElement;
             editingMode = true;
         });
