@@ -1,7 +1,21 @@
-function formulaClick() {
-    $('#popup')[0].style.display = 'block';
-    $('#popup')[0].focus();
+function formulaClick(event) {
+    $('#popup').css('display', 'block');
     $('#popup')[0].contentWindow.postMessage({ type: 'CHANGE_INPUT', text: '' }, '*');
+    $('#popup')[0].focus();
+    $('.tpl_dropdown_menu', '.formula').css('display', 'none');
+    event.stopPropagation();
+}
+
+function fixClick(event) {
+    alert('修复公式还在施工!')
+    $('.tpl_dropdown_menu', '.formula').css('display', 'none');
+    event.stopPropagation();
+}
+
+function guideClick(event) {
+    alert('指南还在施工!');
+    $('.tpl_dropdown_menu', '.formula').css('display', 'none');
+    event.stopPropagation();
 }
 
 setTimeout(function () {
@@ -32,12 +46,40 @@ chrome.extension.sendMessage({}, function (response) {
                 document.body.appendChild(iframe);
 
                 // 上方菜单栏公式按钮
-                let formulaItem = document.createElement('li');
-                formulaItem.setAttribute('class', 'tpl_item jsInsertIcon formula');
-                formulaItem.id = 'js_editor_insert_formula';
-                formulaItem.innerText = '公式';
-                formulaItem.onclick = formulaClick;
-                $('#js_media_list')[0].appendChild(formulaItem);
+                let formulaMenu = document.createElement('li');
+                formulaMenu.setAttribute('class', 'tpl_item tpl_item_dropdown jsInsertIcon formula');
+                formulaMenu.id = 'js_editor_insert_formula';
+                $(formulaMenu).append('<span>公式</span>');
+                
+                // 分别为 下拉菜单栏、插入公式、修复SVG、指南
+                let dropdownMenu = document.createElement('ul');
+                dropdownMenu.setAttribute('class', 'tpl_dropdown_menu');
+                dropdownMenu.style.display = 'none';
+                
+                let formulaInsertItem = document.createElement('li');
+                formulaInsertItem.setAttribute('class', 'tpl_dropdown_menu_item');
+                formulaInsertItem.innerText = '插入公式 ⌘/';
+                formulaInsertItem.onclick = formulaClick;
+                dropdownMenu.appendChild(formulaInsertItem);
+
+                let formulaFixItem = document.createElement('li');
+                formulaFixItem.setAttribute('class', 'tpl_dropdown_menu_item');
+                formulaFixItem.innerText = '修复SVG';
+                formulaFixItem.onclick = fixClick;
+                dropdownMenu.appendChild(formulaFixItem);
+
+                let formulaGuide = document.createElement('li');
+                formulaGuide.setAttribute('class', 'tpl_dropdown_menu_item');
+                formulaGuide.innerText = '指南';
+                formulaGuide.onclick = guideClick;
+                dropdownMenu.appendChild(formulaGuide);
+                
+                formulaMenu.appendChild(dropdownMenu);
+                $(formulaMenu).click(function () {
+                    $(dropdownMenu).css('display', '');
+                });
+
+                $('#js_media_list')[0].appendChild(formulaMenu);
 
                 // 热键绑定 Ctrl/⌘ + /
                 $('#ueditor_0').contents().find('.view').keydown(function (event) {
