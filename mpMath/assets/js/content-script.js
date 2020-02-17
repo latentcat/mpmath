@@ -3,7 +3,7 @@ function formulaClick(event) {
     $('#popup')[0].contentWindow.postMessage({ type: 'CHANGE_INPUT', text: '' }, '*');
     $('#popup')[0].focus();
     $('.tpl_dropdown_menu', '.formula').css('display', 'none');
-    event.stopPropagation();
+    if (event) event.stopPropagation();
 }
 
 function fixClick(event) {
