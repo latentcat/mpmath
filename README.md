@@ -14,32 +14,44 @@
 
 ### 特性
 
-- 使用 MathJax 渲染 SVG 格式的 LaTeX​ 公式
+- 使用 MathJax 渲染 SVG 格式的 LaTeX 公式
 - 嵌入微信公众号原生编辑器
 - 公式显示清晰、可调字号、支持字体颜色改变、支持 Dark Mode
 - 完整的快捷键支持
+- 适配通过 [Markdown Nice](https://mdnice.com) 插入的公式
 
 ### 下载与安装
 
 #### Chrome 应用商店下载
 
-待编写
-
-#### 直接下载
-
-[mpMath 0.1.5](https://cdn.ciaochaos.com/projects/mpMath/mpMath_0_1_5/mpMath_0_1_5.zip)
+- Github：[mpMath](https://github.com/ciaochaos/mpMath)
+- CDN：[mpMath 0.1.7](https://cdn.ciaochaos.com/projects/mpMath/mpMath_0_1_7/mpMath_0_1_7.zip)
+- Chrome 应用商店：[mpMath](https://chrome.google.com/webstore/detail/mpmath/nodhgmlcnikgcdfnllmiodlimcdglchh)
 
 安装步骤：
 
 1. 下载文件并解压
-2. 在 Chrome 中打开 [chrome://extensions/](chrome://extensions/) 或点击右上角 ⫶ -> 更多工具 -> 扩展程序
+2. 在 Chrome 中点击右上角 ︙ -> 更多工具 ->  扩展程序  
+   或打开 [chrome://extensions/](chrome://extensions/) 
 3. 打开右上角开发者模式
 4. 将解压后的文件夹拖入 Chrome 窗口
 5. 安装完成
 
 ### 使用
 
-待编写
+打开微信公众平台图文编辑界面，若 `公式` 已经出现在页面顶部 `音频` 的右侧，则说明插件成功运行。
+
+![](https://cdn.ciaochaos.com/blog/user_images/qlv7x.png)
+
+点击 `公式` 即可新建公式并插入。点击已经插入的公式即可二次编辑。
+
+> 如果你不太熟悉 LaTeX 语法，可以参考语雀的[数学公式举例](https://www.yuque.com/yuque/help/brzicb)、Apple 的[示例方程](https://support.apple.com/zh-cn/HT202501#sample)，或是这一份 [MathJax 基本教程和快速参考](https://math.meta.stackexchange.com/questions/5020/mathjax-basic-tutorial-and-quick-reference)（英文）。
+
+> 如果你正在寻找基于 TeX 编写的数学题，推荐一个网站：[橘子数学](https://www.mathcrowd.cn/)。
+
+> 如果你偏好非所见即所得的写作方式，试试这个：[Markdown Nice](https://mdnice.com)，同样对数学公式有着很好的支持。
+
+强烈推荐使用以下快捷键，提高输入效率。
 
 #### 快捷键
 
@@ -49,15 +61,21 @@
 | 退出公式编辑 | <kbd>esc</kbd>                                               |
 | 插入公式     | <kbd>shift</kbd> + <kbd>enter</kbd>                          |
 
-### 目前问题
+#### 可能遇到的问题
 
+- 输入行内公式的显式样式
+  - 公式前添加 `\displaystyle`
 - 公式右侧的空格会与公式捆绑在一起
+  - 可以在空格右侧使用 <kbd>shift</kbd> + <kbd>←</kbd> 选中空格并删除
 - 公式不能被高亮选中、拖动
-- 行内与行间公式不支持切换
+  - 可同时选中公式左右侧的字符进行复制等操作
 
 ### 反馈
 
-待编写
+- 本页评论区
+- 邮箱：nh@ciaochaos.com
+- 微信：nihao20012
+- 微信公众号：Isle of Chaos
 
 ### 开发计划
 
