@@ -11,12 +11,6 @@
 完全开源。  
 能力有限，许多问题尚未解决，许多功能尚未实现。如果大家能提供帮助的话，我们将感激不尽！
 
-> 如果你不太熟悉 LaTeX​ 语法，可以参考语雀的[数学公式举例](https://www.yuque.com/yuque/help/brzicb)、Apple 的[示例方程](https://support.apple.com/zh-cn/HT202501#sample)，或是这一份 [MathJax 基本教程和快速参考](https://math.meta.stackexchange.com/questions/5020/mathjax-basic-tutorial-and-quick-reference)。
->
-> 如果你正在寻找基于 TeX​ 编写的数学题，推荐一个网站：[橘子数学](https://www.mathcrowd.cn/)。
->
-> 如果你偏好非所见即所得的写作方式，试试这个：[Markdown Nice](https://mdnice.com)，同样对数学公式有着很好的支持。
-
 ### 特性
 
 - 使用 MathJax 渲染 SVG 格式的 LaTeX 公式
