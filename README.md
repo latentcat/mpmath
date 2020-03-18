@@ -1,8 +1,6 @@
 # mpMath — 微信公众号公式编辑插件
 
-查看最新文档：[b.nhciao.com/mpmath](http://b.nhciao.com/mpmath)
-
-以下文档暂时不再更新。插件持续开发中。
+以下文档或有延时。查看最新文档：[b.nhciao.com/mpmath](http://b.nhciao.com/mpmath)。
 
 想要在微信公众号的编辑器里输入公式吗？来试试我们的 Chrome 插件吧～
 
