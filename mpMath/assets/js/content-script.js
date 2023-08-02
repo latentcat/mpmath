@@ -44,6 +44,7 @@ chrome.runtime.sendMessage({}, function (response) {
                 iframe.id = 'popup';
                 iframe.style.display = 'none';
                 document.body.appendChild(iframe);
+                console.log(iframe)
 
                 // 上方菜单栏公式按钮
                 let formulaMenu = document.createElement('li');
