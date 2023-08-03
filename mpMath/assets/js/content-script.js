@@ -29,7 +29,7 @@ setTimeout(function () {
 }, 1000);
 
 // 等待文档加载完毕
-chrome.extension.sendMessage({}, function (response) {
+chrome.runtime.sendMessage({}, function (response) {
     var readyStateCheckInterval = setInterval(function () {
         if (document.readyState === 'complete') {
             clearInterval(readyStateCheckInterval);
@@ -37,13 +37,14 @@ chrome.extension.sendMessage({}, function (response) {
             if ($('#js_media_list')[0]) {
                 // 公式编辑弹窗
                 let iframe = document.createElement('iframe');
-                iframe.src = chrome.extension.getURL('./pages/popup.html');
+                iframe.src = chrome.runtime.getURL('./pages/popup.html');
                 iframe.setAttribute('class', 'mpm-modal');
                 iframe.frameBorder = 0;
                 iframe.allowTransparency = true;
                 iframe.id = 'popup';
                 iframe.style.display = 'none';
                 document.body.appendChild(iframe);
+                console.log(iframe)
 
                 // 上方菜单栏公式按钮
                 let formulaMenu = document.createElement('li');
