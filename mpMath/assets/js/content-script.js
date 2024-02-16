@@ -77,7 +77,19 @@ chrome.runtime.sendMessage({}, function (response) {
 
                 formulaMenu.appendChild(dropdownMenu);
                 $(formulaMenu).click(function () {
-                    $(dropdownMenu).css('display', '');
+                    $(dropdownMenu).css('display', 'none');
+                });
+
+                $(document).click(function(event) {
+                    // 检查点击的元素是否是formulaMenu
+                    if (!$(event.target).closest(formulaMenu).length) {
+                        // 如果不是，下拉菜单消失
+                        $(dropdownMenu).css('display', 'none');
+                    }
+                    else {
+                        // 如果是，下拉菜单显示
+                        $(dropdownMenu).css('display', 'block');
+                    }
                 });
 
                 $('#js_media_list')[0].appendChild(formulaMenu);
