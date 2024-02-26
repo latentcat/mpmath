@@ -22,7 +22,7 @@
 #### 方式
 
 - Github：[mpMath](https://github.com/ciaochaos/mpMath)
-- CDN：[mpMath 0.1.8](https://cdn.ciaochaos.com/projects/mpMath/mpMath_0_1_8/mpMath_v0.1.8.crx)
+- 直接下载：[mpMath v0.2.1](https://github.com/ciaochaos/mpMath/releases/download/v0.2.1/mpMath.crx)
 - Chrome 应用商店：[mpMath](https://chrome.google.com/webstore/detail/mpmath/nodhgmlcnikgcdfnllmiodlimcdglchh)
 
 #### 安装步骤：
