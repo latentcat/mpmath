@@ -1,6 +1,6 @@
 # mpMath — 微信公众号公式编辑插件
 
-以下文档或有延时。查看最新文档：[b.nhciao.com/mpmath](http://b.nhciao.com/mpmath)。
+以下文档或有延时。查看最新文档：[troyni.com/mpmath](https://troyni.com/mpmath)。
 
 想要在微信公众号的编辑器里输入公式吗？来试试我们的 Chrome 插件吧～
 
@@ -38,7 +38,7 @@
 
 打开微信公众平台图文编辑界面，若 `公式` 已经出现在页面顶部 `音频` 的右侧，则说明插件成功运行。
 
-![](https://cdn.ciaochaos.com/blog/user_images/qlv7x.png)
+![](https://troyni.com/assets/building-mpmath/1fa9214e84c1455ee3278fb11b1e391a_MD5.jpg)
 
 点击 `公式` 即可新建公式并插入。点击已经插入的公式即可二次编辑。
 
@@ -70,8 +70,8 @@
 ### 反馈
 
 - 本页评论区
-- 邮箱：nh@ciaochaos.com
-- 微信：nihao20012
+- 邮箱：1272777550@qq.com
+- 微信：nhciao
 - 微信公众号：Isle of Chaos
 
 ### 开发计划
