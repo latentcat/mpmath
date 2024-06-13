@@ -1,39 +1,65 @@
 <!DOCTYPE html>
 <html>
-
-<head>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="../assets/css/weui.css">
-    <link rel="stylesheet" href="../assets/css/popup.css">
-    <script src="../assets/js/jquery-3.4.1.min.js">
-    </script>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../assets/css/weui.css" />
+    <link rel="stylesheet" href="../assets/css/popup.css" />
+    <script src="../assets/js/jquery-3.4.1.min.js"></script>
     <script src="../assets/js/polyfill.min.js"></script>
-    <script id="MathJax-script" async src="../assets/js/tex-svg-full.js"></script>
-</head>
+    <script
+      id="MathJax-script"
+      async
+      src="../assets/js/tex-svg-full.js"
+    ></script>
+  </head>
 
-<body>
+  <body>
     <div id="mpm-dialog" class="weui-desktop-dialog">
-        <div class="weui-desktop-dialog__hd">
-            <span class="weui-desktop-dialog__title">插入公式</span>
-            <button id="close" class="weui-desktop-icon-btn weui-desktop-dialog__close-btn">
-                        <svg width="18" height="18" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg"><path d="M10.01 8.996l7.922-7.922c.086-.086.085-.21.008-.289l-.73-.73c-.075-.074-.208-.075-.29.007L9 7.984 1.077.062C.995-.02.863-.019.788.055l-.73.73c-.078.078-.079.203.007.29l7.922 7.92-7.922 7.922c-.086.086-.085.212-.007.29l.73.73c.075.074.207.074.29-.008l7.92-7.921 7.922 7.921c.082.082.215.082.29.008l.73-.73c.077-.078.078-.204-.008-.29l-7.921-7.921z"></path></svg>
-                    </button>
-        </div>
-        <div class="weui-desktop-dialog__bd">
-            <textarea class="weui-desktop-form__input" id="input" placeholder="输入 TeX 公式" cols="40" rows="4"></textarea>
-            <div id="output"></div>
-        </div>
-        <div class="weui-desktop-dialog__ft">
-            <span class="mpm-checkbox">
-                <input id="block" class="weui-desktop-icon-checkbox" type="checkbox">
-                <label for="block">行间公式</label>
-            </span>
-            <button id="insert" class="weui-desktop-btn weui-desktop-btn_primary">插入</button>
-            <button id="cancel" class="weui-desktop-btn weui-desktop-btn_default">取消</button>
-        </div>
+      <div class="weui-desktop-dialog__hd">
+        <span class="weui-desktop-dialog__title">插入公式</span>
+        <button
+          id="close"
+          class="weui-desktop-icon-btn weui-desktop-dialog__close-btn"
+        >
+          <svg
+            width="18"
+            height="18"
+            viewBox="0 0 18 18"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M10.01 8.996l7.922-7.922c.086-.086.085-.21.008-.289l-.73-.73c-.075-.074-.208-.075-.29.007L9 7.984 1.077.062C.995-.02.863-.019.788.055l-.73.73c-.078.078-.079.203.007.29l7.922 7.92-7.922 7.922c-.086.086-.085.212-.007.29l.73.73c.075.074.207.074.29-.008l7.92-7.921 7.922 7.921c.082.082.215.082.29.008l.73-.73c.077-.078.078-.204-.008-.29l-7.921-7.921z"
+            ></path>
+          </svg>
+        </button>
+      </div>
+      <div class="weui-desktop-dialog__bd">
+        <textarea
+          class="weui-desktop-form__input"
+          id="input"
+          placeholder="输入 TeX 公式"
+          cols="40"
+          rows="4"
+        ></textarea>
+        <div id="output"></div>
+      </div>
+      <div class="weui-desktop-dialog__ft">
+        <span class="mpm-checkbox">
+          <input
+            id="block"
+            class="weui-desktop-icon-checkbox"
+            type="checkbox"
+          />
+          <label for="block">行间公式</label>
+        </span>
+        <button id="insert" class="weui-desktop-btn weui-desktop-btn_primary">
+          插入
+        </button>
+        <button id="cancel" class="weui-desktop-btn weui-desktop-btn_default">
+          取消
+        </button>
+      </div>
     </div>
-    <script id="MathJax-script" async src="../assets/js/tex-svg-full.js"></script>
     <script src="../assets/js/popup.js"></script>
-</body>
-
+  </body>
 </html>
